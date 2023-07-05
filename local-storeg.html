@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <style>
+      img {
+        width: 320px;
+      }
+      a i{
+        display: block;
+        font-size: 30px;
+        text-align: center;
+      }
+      .button{
+        display: grid;
+        grid-template-columns: repeat(2,1fr);
+        width: 25%;
+      }
+      .left{
+        text-align: center;
+      }
+      .right{
+        text-align: center;
+      }
+      #num{
+        font-size: 28px;
+      font-family: 'Roboto', sans-serif;
+
+      }
+      #num1{
+        font-size: 28px;
+      font-family: 'Roboto', sans-serif;
+      }
+      h4{
+        margin: 18px 0;
+        font-size: 17px;
+        font-family: 'Poppins', sans-serif;
+
+      }
+    </style>
+  </head>
+  <body>
+
+
+    <div></div>
+    <div class="button">
+        <div class="left">
+            <a href="">
+                <i class="fa-regular fa-thumbs-up"></i>
+            </a>
+            <h1 id="num">Likes:0</h1>
+        </div>
+        <div class="right">
+            <a href="">
+                <i class="fa-regular fa-thumbs-down" id="dis"></i>
+            </a>
+            <h1 id="num1">Dislikes:0 </h1>
+        </div>
+    </div>
+  </body>
+
+
+
+
+  <script>
+    let image = document.createElement("img");
+    image.src =
+      "https://i2-prod.cambridge-news.co.uk/incoming/article21238963.ece/ALTERNATES/s1200b/1_FILE-PHOTO-Actor-Rowan-Atkinson-In-Hospital-After-Car-Crash.jpg";
+
+    let a=document.createElement("h4")
+    a.innerHTML="Caption :- Hamare yaha aisa hi hota he"
+
+    document.querySelector("div").append(image,a);
+
+
+
+    let like=localStorage.getItem("post likes")||0;
+    document.getElementById("num").innerHTML=`Likes :${like}`
+
+    document.querySelector("i").addEventListener("click",function(e){
+        e.preventDefault()
+
+        like =Number(like)+1
+
+        localStorage.setItem("post likes",like)
+        document.getElementById("num").innerHTML=`Likes :${like}`
+
+        document.querySelector("i").style.color="red"
+
+    })
+
+
+
+    let dis=localStorage.getItem("post dislikes")||0
+    document.getElementById("num1").innerHTML=`Dislikes :${dis}`
+
+
+    document.getElementById("dis").addEventListener("click",function(e){
+        e.preventDefault()
+
+        dis =Number(dis)+1
+
+        localStorage.setItem("post dislikes",dis)
+        document.getElementById("num1").innerHTML=`Dislikes :${dis}`
+
+        document.getElementById("dis").style.color="black"
+    })
+
+
+  </script>
+
+  <script src="https://kit.fontawesome.com/e500e5c4a4.js" crossorigin="anonymous"></script>
+
+
+
+</html>

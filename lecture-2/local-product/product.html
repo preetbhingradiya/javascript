@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <a href="./index.html">admin</a>
+    <button id="low">Low price</button>
+    <button id="high">High price</button>
+    <button id="male">male</button>
+    <input type="text" id="search" />
+    <h1>Total count:0</h1>
+    <div id="output"></div>
+  </body>
+
+  <script>
+    let arr = JSON.parse(localStorage.getItem("product")) || [];
+    document.querySelector("h1").innerHTML=`Total count :${arr.length}`
+
+    let result = (arr) => {
+      document.getElementById("output").innerHTML = "";
+      arr.map((ele, index) => {
+        let div = document.createElement("div");
+
+        let a = document.createElement("h2");
+        a.innerHTML = ele.titale;
+        let b = document.createElement("p");
+        b.innerHTML = ele.categary;
+        let c = document.createElement("h3");
+        c.innerHTML = ele.price;
+        let d = document.createElement("h6");
+        d.innerHTML = ele.rating;
+
+        let remove = document.createElement("button");
+        remove.innerHTML = "delet";
+        remove.addEventListener("click", () => {
+          arr.splice(index, 1);
+          localStorage.setItem("product", JSON.stringify(arr));
+          window.location.reload();
+        });
+
+
+        div.append(a, b, c, d, remove);
+        document.getElementById("output").append(div);
+      });
+    };
+
+    result(arr);
+
+    document.getElementById("low").addEventListener("click", () => {
+      arr.sort((a, b) => a.price - b.price);
+      result(arr);
+    });
+
+    document.getElementById("high").addEventListener("click", () => {
+      arr.sort((a, b) => b.price - a.price);
+      result(arr);
+    });
+
+    document.getElementById("male").addEventListener("click", () => {
+      let temp = arr.filter((val) => val.categary == "male");
+      console.log(temp);
+      result(temp);
+    });
+
+    document.getElementById("search").addEventListener("keypress", (e) => {
+      if (e.key == "Enter") {
+        let store = document.getElementById("search").value;
+        let temp = arr.filter((val) => val.titale.includes(store));
+        result(temp);
+        // let temp1 = arr.filter((val) => val.titale.startsWith(store));
+        // result(temp1);
+        // let temp1 = arr.filter((val) => val.titale.endsWith(store));
+        // result(temp1);
+      }
+    });
+  </script>
+</html>

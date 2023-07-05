@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+
+    <style>
+      section {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        margin-top: 50px;
+        font-family: "Roboto", sans-serif;
+      }
+      section i {
+        font-size: 30px;
+      }
+      section h1 {
+        margin: 15px 0;
+        font-size: 40px;
+      }
+      h3 {
+        margin: 0;
+        font-size: 22px;
+      }
+      section div {
+        text-align: center;
+        border-right: 2px solid rgb(147, 147, 144);
+        padding: 20px 0;
+      }
+      .first {
+        background-color: rgb(82 82 91);
+        color: #fafafa;
+      }
+      .second {
+        background-color: rgb(63 63 70);
+        color: #fafafa;
+      }
+      .third {
+        background-color: rgb(82 82 91);
+        color: #fafafa;
+      }
+      .four {
+        background-color: rgb(63 63 70);
+        color: #fafafa;
+      }
+      input {
+        padding: 4px 10px;
+        border-radius: 5px;
+      }
+    </style>
+  </head>
+
+  <input type="number" id="value1" placeholder="Count the project" />
+  <input type="number" id="value2" placeholder="Count the happy clients" />
+  <input type="number" id="value3" placeholder="Count cup of coffe" />
+  <input type="number" id="value4" placeholder="Count photo taken" />
+
+  <section>
+    <div class="first">
+      <i class="fa fa-briefcase"></i>
+      <h1 id="sec">0</h1>
+      <h3>Projects done</h3>
+    </div>
+    <div class="second">
+      <i class="fa-sharp fa-solid fa-face-smile"></i>
+      <h1 id="smile">0</h1>
+      <h3>Happy clients</h3>
+    </div>
+    <div class="third">
+      <i class="fa fa-coffee"></i>
+      <h1 id="coffe">0</h1>
+      <h3>Cups of coffee</h3>
+    </div>
+    <div class="four">
+      <i class="fa fa-camera"></i>
+      <h1 id="camera">0</h1>
+      <h3>Photos taken</h3>
+    </div>
+  </section>
+
+  <body>
+    <script>
+      document.body.addEventListener("keypress", function (e) {
+          if (e.key == "Enter") {
+            let num = document.getElementById("value1").value;
+            let count = 0;
+            let id;
+            id = setInterval(() => {
+              count += 1;
+              if (count == num) {
+                clearInterval(id);
+              }
+              document.getElementById("sec").innerHTML = count;
+            }, 10);
+
+            setTimeout(() => {
+              let num = document.getElementById("value2").value;
+              let count = 0;
+              let id;
+              id = setInterval(() => {
+                count += 1;
+                if (count == num) {
+                  clearInterval(id);
+                }
+                document.getElementById("smile").innerHTML = count;
+              }, 10);
+            }, 3000);
+
+            setTimeout(() => {
+              let num = document.getElementById("value3").value;
+              let count = 0;
+              let id;
+              id = setInterval(() => {
+                count += 1;
+                if (count == num) {
+                  clearInterval(id);
+                }
+                document.getElementById("coffe").innerHTML = count;
+              }, 10);
+            }, 3000);
+
+            setTimeout(() => {
+              let num = document.getElementById("value4").value;
+              let count = 0;
+              let id;
+              id = setInterval(() => {
+                count += 1;
+                if (count == num) {
+                  clearInterval(id);
+                }
+                document.getElementById("camera").innerHTML = count;
+              }, 10);
+            }, 3000);
+          }
+        });
+    </script>
+
+    <script
+      src="https://kit.fontawesome.com/e500e5c4a4.js"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>

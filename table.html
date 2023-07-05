@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      input {
+        display: block;
+        margin: 20px 0;
+      }
+    </style>
+  </head>
+  <body>
+    <form>
+      <input type="text" id="name" placeholder="Enter the employee name" required/>
+      <select name="" id="job"required>
+        <option value="SDF-1">SDF-1</option>
+        <option value="SDF-2">SDF-2</option>
+        <option value="HR manager">HR manager</option>
+      </select>
+      <select name="" id="depar"required>
+        <option value="frend end devloper">frend end devloper</option>
+        <option value="back and devloper">back and devloper</option>
+        <option value="full strack">full strack</option>
+      </select>
+      <input type="number" id="salary" placeholder="salary" required/>
+      <input type="email" id="email" placeholder="Enter the email" required/>
+      <input type="number" id="exp" placeholder="Enter the work experience" required />
+      <input type="submit" />
+    </form>
+    <table border="1px" cellpadding="20px" cellspacing="0">
+      <thead>
+        <tr>
+          <th>Employee name</th>
+          <th>Jobe role</th>
+          <th>Deparment</th>
+          <th>salary</th>
+          <th>Email</th>
+          <th>Work experience</th>
+          <th>Role type</th>
+          <th id="remove">Delete</th>
+        </tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+    <h1 id="store">Total Employee score :</h1>
+
+    <h1 id="total">toyal salary of employee</h1>
+
+    <script>
+      let sum = 0;
+      let count=0
+
+      document.querySelector("form").addEventListener("submit", function (e) {
+        e.preventDefault();
+
+        let a = document.getElementById("name").value;
+        let b = document.getElementById("job").value;
+        let c = document.getElementById("depar").value;
+        let d = document.getElementById("salary").value;
+        let f = document.getElementById("email").value;
+        let g = document.getElementById("exp").value;
+
+        let table = document.createElement("tr");
+
+        let a1 = document.createElement("td");
+        a1.innerHTML = a;
+        let b1 = document.createElement("td");
+        b1.innerHTML = b;
+        let c1 = document.createElement("td");
+        c1.innerHTML = c;
+        let d1 = document.createElement("td");
+        d1.innerHTML = d;
+        if(d<=50000){
+          d1.style.background="blue"
+        }
+        else if(d>=50000 && d<=100000){
+          d1.style.background="yellow"
+        }
+        else{
+          d1.style.background="pink"
+        }
+        let f1 = document.createElement("td");
+        f1.innerHTML = f;
+        let g1 = document.createElement("td");
+        g1.innerHTML = g;
+        let h1 = document.createElement("td");
+        if (g <= 5) {
+          h1.innerHTML = "junior";
+        } else {
+          h1.innerHTML = "senior";
+        }
+
+        let Delete = document.createElement("td");
+        Delete.innerHTML = "delete";
+
+        Delete.style.background = "red";
+
+        Delete.addEventListener("click", function (event) {
+          event.target.parentNode.remove();
+
+          sum -= 1;
+          document.getElementById("store").innerHTML = `Total Employee score: ${sum}`;
+
+          
+          count -= Number(d);
+          document.getElementById("total").innerHTML = `toyal salary of employee: ${count}`;
+        });
+
+        document.getElementById("remove").addEventListener("click", function (event) {
+            document.querySelector("tbody").innerHTML = "";
+          });
+
+        sum += 1;
+        document.getElementById("store").innerHTML = `Total Employee score: ${sum}`;
+
+        
+        count += Number(d);
+        document.getElementById("total").innerHTML = `toyal salary of employee: ${count}`;
+
+        table.append(a1, b1, c1, d1, f1, g1, h1, Delete);
+        document.querySelector("tbody").append(table);
+      });
+    </script>
+  </body>
+</html>

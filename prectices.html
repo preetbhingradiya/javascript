@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+
+      #image {
+        width: 400px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <form class="form">
+      <div class="sub-form">
+        <h1 style="text-align: center">Registration Form</h1>
+        <div class="main">
+          First Name : <input type="text" placeholder="Fristname" id="fn" />
+        </div>
+        <div class="main">
+          Last Name:<input type="text" placeholder="Lsatname" id="ln" />
+        </div>
+        <div class="main">
+          Email :<input type="email" placeholder="Email" id="email" />
+        </div>
+        <div class="main">
+          Age :<input type="number" placeholder="age" id="age" />
+        </div>
+        <div class="main">
+          password :<input type="password" placeholder="password" id="pass" />
+        </div>
+        <div class="gander">
+          Gander :<input type="radio" name="gender" />
+          <label for="" style="margin-left: 5px">MALE</label>
+          <input type="radio" name="gender" />
+          <label for="" style="margin-left: 5px">FEMALE</label>
+        </div>
+        Address :<textarea name="" id="" cols="30" rows="5"></textarea>
+        <div class="main">
+          City :
+          <select name="" id="">
+            <option value="">surat</option>
+            <option value="">amreli</option>
+            <option value="">rajkot</option>
+            <option value="">vadodra</option>
+          </select>
+        </div>
+
+        <input type="submit" value="submit" class="submit" />
+
+        <div id="ans"></div>
+
+        <button id="show" style="margin: 10px 0">show the databas</button>
+      </div>
+    </form>
+
+    <script>
+      let name = document.createElement("h3");
+      name.innerHTML = "click and Show the Mr.been";
+      document.querySelector("body").append(name);
+
+      name.addEventListener("click", function () {
+        let a = document.createElement("img");
+        a.style.width = "200px";
+        a.src =
+          "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSFXyUWXXwVS8XT0qMsb2vF5w_ugyj0A_mqhq-8cUBgKQ&usqp=CAU&ec=48665698";
+        document.querySelector("body").append(a);
+
+        a.setAttribute("id", "image");
+        let namste = document.createElement("h3");
+        namste.innerHTML = "lagta he kuch to gadbad he daya";
+        document.querySelector("body").append(namste);
+      });
+    </script>
+
+    <script>
+      document.querySelector("form").addEventListener("submit", function (e) {
+        e.preventDefault();
+
+        let a = document.getElementById("fn").value;
+        let b = document.getElementById("ln").value;
+        let c = document.getElementById("email").value;
+        let d = document.getElementById("pass").value;
+        let f = document.getElementById("age").value;
+
+        let obj = {
+          Fristname: a,
+          Lsatname: b,
+          Email: c,
+          password: d,
+          Age: f,
+        };
+
+        // form//
+
+        let x = document.createElement("h2");
+        x.innerHTML = `First Name :${obj.Fristname}`;
+
+        let y = document.createElement("h2");
+        y.innerHTML = `Last Name :${obj.Lsatname}`;
+
+        let z = document.createElement("h2");
+        z.innerHTML = `Email :${obj.Email}`;
+
+        let x1 = document.createElement("h2");
+        x1.innerHTML = `password :${obj.password}`;
+
+        let y1 = document.createElement("h2");
+        y1.innerHTML = `Age :${obj.Age}`;
+
+        let name = document.getElementById("show");
+
+        name.addEventListener("click", function () {
+          let wrapper = document.getElementById("ans").append(x, y, z, x1, y1);
+        });
+      });
+    </script>
+  </body>
+</html>

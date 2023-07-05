@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        input{
+            display: block;
+            margin: 20px 0;
+        }
+    </style>
+</head>
+<body>
+    
+    <form>
+        <input type="text" placeholder="first name" id="a1" required>
+        <input type="text" placeholder="last name" id="b1" required>
+        <input type="password" placeholder="password" id="c1">
+        <input type="number" placeholder="age" id="d1">
+        <input type="submit" >
+        <div id="result"></div>
+    </form>
+
+
+    <script>
+        document.querySelector("form").addEventListener("submit",function(e){
+            e.preventDefault()
+            
+            let a=document.getElementById("a1").value
+            let b=document.getElementById("b1").value
+            let c=document.getElementById("c1").value
+            let d=document.getElementById("d1").value
+
+            
+            if(8<c){
+                return alert("plase anter the minimum 8 character")
+            } 
+            
+            
+            if(d>14 && d<60){
+                console.log(a,b,c,d);
+            }
+            else{                  
+            let x=document.createElement("h2")
+            x.innerHTML="enter the age betweeen 14 and 60"
+
+            document.getElementById("result").append(x)
+            }
+
+
+        })
+    </script>
+</body>
+</html>

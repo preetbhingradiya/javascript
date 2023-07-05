@@ -1,0 +1,35 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Content Manipulation</title>
+  </head>
+  <body>
+    <h1 id="Fn">RED</h1>
+    <h3 id="Ln">AND</h3>
+    <p id="Fulln">WHITE</p>
+    <button onclick="FirstName()">FIRSTNAME</button>
+    <button onclick="LastName()">LASTNAME</button>
+    <button onclick="FullName()">FIRSTNAME NAME</button>
+    <button onclick="Defaults()">RESET DEFAULTS</button>
+    <script>
+      function FirstName() {
+        document.getElementById("Fn").innerHTML="PREET"
+      }
+
+      function LastName() {
+        document.getElementById("Ln").innerHTML="BHINGRADIYA"
+      }
+
+      function FullName() {
+        document.getElementById("Fulln").innerHTML="PREET BHINGRADIYA"
+      }
+
+      function Defaults() {
+        document.getElementById("Fn").innerHTML=" "
+        document.getElementById("Ln").innerHTML=""
+        document.getElementById("Fulln").innerHTML=""
+      }
+    </script>
+  </body>
+</html>

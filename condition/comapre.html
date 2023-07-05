@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <input type="number" id="a" placeholder="enter the number1">
+    <input type="number" id="b" placeholder="enter th number2">
+    <input type="number" id="c" placeholder="enter th number3">
+    <button onclick="compare()">click</button>
+
+    <h1 id="ans-1"></h1>
+    <h1 id="ans-2"></h1>
+
+</body>
+
+<script>
+    function compare() {
+        let number1 = document.getElementById("a").value
+        let number2 = document.getElementById("b").value
+        let number3 = document.getElementById("c").value
+
+
+        if ((number3+number1) > number2) {
+
+            // document.getElementById("ans-1").innerHTML = 'True'
+            console.log("true");
+        }
+        else {
+            // document.getElementById("ans-1").innerHTML = 'False'
+            console.log("false");
+        }
+
+        if ((number3+number1) < number2) {
+
+            // document.getElementById("ans-2").innerHTML = 'True'
+            console.log("true");
+        }
+        else {
+            // document.getElementById("ans-2").innerHTML = 'False'
+            console.log("false");
+        }
+
+
+    }
+
+</script>
+
+</html>
