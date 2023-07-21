@@ -7,7 +7,7 @@ class password{
         let char="abcdefghijklmnopqrstwxyz"
         let number="1234567890"
         let special="!@#$%^&*()|~"
-        if(length<5){
+        if(length<3){
             console.log("plase enter a valid password");
         }
         else{
@@ -19,9 +19,11 @@ class password{
                 i+=3
             }
         }
+        this.password=this.password.substr(0,length)
         return this.password
     }
 }
 
 let a=new password()
 console.log(a.genratepassword(10))
+
